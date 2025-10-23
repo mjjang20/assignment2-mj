@@ -1,0 +1,51 @@
+--------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\mjjang\penguins-output.log
+  log type:  text
+ opened on:  22 Oct 2025, 20:21:56
+
+. import delimited "P:\QAC\qac380\TEAMS\Team 5\penguins.csv"
+(encoding automatically selected: ISO-8859-2)
+(8 vars, 344 obs)
+
+. destring bill_length_mm bill_depth_mm flipper_length_mm body_mass_g, replace i
+> gnore("NA")
+bill_length_mm: characters N A removed; replaced as double
+(2 missing values generated)
+bill_depth_mm: characters N A removed; replaced as double
+(2 missing values generated)
+flipper_length_mm: characters N A removed; replaced as int
+(2 missing values generated)
+body_mass_g: characters N A removed; replaced as int
+(2 missing values generated)
+
+. sum bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+bill_lengt~m |        342    43.92193    5.459584       32.1       59.6
+bill_depth~m |        342    17.15117    1.974793       13.1       21.5
+flipper_le~m |        342    200.9152    14.06171        172        231
+ body_mass_g |        342    4201.754    801.9545       2700       6300
+
+. tabstat bill_length_mm bill_depth_mm flipper_length_mm body_mass_g, by(species
+> )
+
+Summary statistics: Mean
+Group variable: species 
+
+  species |  bill_l~m  bill_d~m  flippe~m  body_m~g
+----------+----------------------------------------
+   Adelie |  38.79139  18.34636  189.9536  3700.662
+Chinstrap |  48.83382  18.42059  195.8235  3733.088
+   Gentoo |  47.50488  14.98211   217.187  5076.016
+----------+----------------------------------------
+    Total |  43.92193  17.15117  200.9152  4201.754
+---------------------------------------------------
+
+. log close
+      name:  <unnamed>
+       log:  C:\Users\mjjang\penguins-output.log
+  log type:  text
+ closed on:  22 Oct 2025, 20:23:44
+--------------------------------------------------------------------------------
