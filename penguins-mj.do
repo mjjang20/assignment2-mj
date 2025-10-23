@@ -7,3 +7,6 @@ destring bill_length_mm bill_depth_mm flipper_length_mm body_mass_g, replace ign
 //Two descriptive analyses
 sum bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
 tabstat bill_length_mm bill_depth_mm flipper_length_mm body_mass_g, by(species)
+
+//Regression
+regress body_mass_g bill_length_mm bill_depth_mm flipper_length_mm
